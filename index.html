@@ -33,7 +33,7 @@ corslite('http://handygeospatial.github.io/geojsonvt-ksj-site/' +
   canvas.drawTile = function(canvas, tilePoint, zoom) {
     var ctx = canvas.getContext('2d');
     var tile = tileIndex.getTile(zoom, tilePoint.x, tilePoint.y);
-    var features = tile.features;
+    var features = tile?tile.features:[];
     for (var i = 0; i < features.length; i++) {
       var feature = features[i], typeChanged = type !== feature.type,
         type = feature.type;
